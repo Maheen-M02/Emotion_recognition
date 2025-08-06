@@ -6,16 +6,16 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Paths to your models (you can make these relative if needed)
+
 face_detection = cv2.CascadeClassifier("C:/Users/Maheen/Desktop/emotion_recog/haarcascade_frontalface_default.xml")
 emotion_classifier = load_model("C:/Users/Maheen/Desktop/emotion_recog/_mini_XCEPTION.102-0.66.hdf5", compile=False)
 
-# Emotion labels
+
 EMOTIONS = ["angry", "disgust", "scared", "happy", "sad", "surprised", "Mewing"]
 
 @app.route('/detect', methods=['GET'])
 def detect_emotion():
-    # Capture one frame from webcam
+
     cap = cv2.VideoCapture(0)
     ret, frame = cap.read()
     cap.release()
@@ -26,7 +26,7 @@ def detect_emotion():
             "error": "Could not access webcam"
         }), 500
 
-    # Preprocess
+   
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_detection.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
 
@@ -37,7 +37,7 @@ def detect_emotion():
             "message": "No face detected"
         })
 
-    # Use the largest face
+    
     (fX, fY, fW, fH) = sorted(faces, key=lambda x: x[2]*x[3], reverse=True)[0]
     roi = gray[fY:fY+fH, fX:fX+fW]
     roi = cv2.resize(roi, (64, 64))
@@ -45,11 +45,11 @@ def detect_emotion():
     roi = img_to_array(roi)
     roi = np.expand_dims(roi, axis=0)
 
-    # Predict
+  
     preds = emotion_classifier.predict(roi)[0]
     dominant_emotion = EMOTIONS[np.argmax(preds)]
 
-    # Prepare response
+   
     response = {
         "dominant_emotion": dominant_emotion,
         "probabilities": {
