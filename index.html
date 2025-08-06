@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Emotion Recognition</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <h1>AI Emotion Recognition</h1>
+          <p>Real-time Emotion Recognition powered by Deep Learning and Computer Vision.</p>
+        </div>
+        
+        <div class="main-content">
+          <div class="webcam-section">
+            <div class="webcam-container">
+              <video id="webcam" autoplay muted playsinline></video>
+              <div class="webcam-overlay">
+                <div class="status-indicator" id="status"></div>
+              </div>
+            </div>
+            <div class="controls">
+              <button id="startBtn" class="btn btn-start">Start Detection</button>
+              <button id="stopBtn" class="btn btn-stop" disabled>Stop Detection</button>
+            </div>
+          </div>
+          
+          <div class="emotion-section">
+            <div class="dominant-emotion">
+              <div id="dominantEmotion" class="emotion-label">Ready</div>
+            </div>
+            <div class="chart-container">
+              <div class="emotion-bars" id="emotionBars">
+                <div class="emotion-bar" data-emotion="angry">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Angry</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+                <div class="emotion-bar" data-emotion="disgust">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Disgust</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+                <div class="emotion-bar" data-emotion="scared">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Scared</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+                <div class="emotion-bar" data-emotion="happy">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Happy</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+                <div class="emotion-bar" data-emotion="sad">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Sad</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+                <div class="emotion-bar" data-emotion="surprised">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Surprised</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+                <div class="emotion-bar" data-emotion="mewing">
+                  <div class="bar-fill"></div>
+                  <span class="emotion-name">Mewing</span>
+                  <span class="emotion-value">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
