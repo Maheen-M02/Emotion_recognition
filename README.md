@@ -44,13 +44,15 @@ Emotion recognition enhances **virtual communication**, **mental health monitori
 ```bash
 git clone https://github.com/your-username/emotion-recognition-video-calls.git
 cd emotion-recognition-video-calls
-
+```
 ### 2️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
-
+```
 ### 3️⃣ Run the Application
+```bash
 python app.py
-
+```
 ### 4️⃣ Access in Browser
 Go to http://localhost:5000
  or your deployed server URL.
